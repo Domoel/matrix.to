@@ -89,7 +89,6 @@ button, input[type=submit] {
     width: 100%;
 }
 
-/* BUTTONS: Statisch, stabilisiert und mit festen 4px Margin */
 .primary, .secondary {
     text-decoration: none;
     font-weight: bold;
@@ -101,15 +100,11 @@ button, input[type=submit] {
     letter-spacing: 1px;
     width: 100%; 
     
-    line-height: 1.2;
-    transition: background-color 0.1s linear, filter 0.1s linear, opacity 0.1s linear;
+    border-left: 0px solid var(--ztfr-purple);
     
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: never;
+    transition: background-color 0.2s ease, border-left 0.2s ease, padding-left 0.2s ease, filter 0.2s ease;
     
-    transform: translateZ(0); 
-    will-change: background-color;
+    transform: translateZ(0);
     backface-visibility: hidden;
 }
 
@@ -117,12 +112,15 @@ button, input[type=submit] {
     background: var(--foreground);
     color: var(--app-background) !important;
     border-radius: 4px;
-    border: 1px solid var(--foreground);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 .primary:hover {
     filter: brightness(0.9);
-    transform: none !important;
+    border-left: 6px solid var(--ztfr-purple) !important;
+    padding-left: 26px; 
 }
 
 .secondary {
@@ -134,7 +132,8 @@ button, input[type=submit] {
 
 .secondary:hover {
     background: rgba(255,255,255,0.05);
-    transform: none !important;
+    border-left: 6px solid var(--ztfr-purple) !important;
+    padding-left: 26px;
 }
 
 /* Fix für Button-Container (entfernt versteckte Gaps und stabilisiert Layout) */
