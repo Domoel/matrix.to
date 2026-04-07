@@ -56,6 +56,8 @@ The matrix.to URL scheme is
 The #/ component is mandatory and exists to avoid leaking the target URL to the
 server hosting matrix.to.
 
+There is no _Entity type_ for **Spaces**, as they are technically just rooms.
+
 Note that linking to rooms by ID should only be used for rooms to which the
 target user has been invited: these links cannot be assumed to work for all
 visitors.
