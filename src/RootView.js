@@ -34,7 +34,7 @@ export class RootView extends TemplateView {
                     "© 2026 ", 
                     t.a({href: "https://ztfr.eu"}, "Zeitfresser"), 
                     " | Powered by ", 
-                    externalLink(t, "https://github.com/matrix-org/matrix.to", "Matrix-To")
+                    externalLink(t, "https://github.com/matrix-org/matrix.to", "Matrix-to")
                 ]),
                 t.p({className: {hidden: vm => !vm.hasPreferences}}, [
                     t.button({className: "text", onClick: () => vm.clearPreferences()}, "Clear preferences")
