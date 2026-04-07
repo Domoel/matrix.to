@@ -89,18 +89,25 @@ button, input[type=submit] {
     width: 100%;
 }
 
-/* BUTTONS: Überall konsistent 4px Margin */
 .primary, .secondary {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     padding: 14px 20px;
-    margin: 4px 0 !important; /* Fixierter Abstand nach deinem Wunsch */
+    margin: 4px 0 !important; 
     display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.2s ease;
     width: 100%; 
+    
+    transition: background-color 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+    
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
 }
 
 .primary {
@@ -108,10 +115,12 @@ button, input[type=submit] {
     color: var(--app-background) !important;
     border-radius: 4px;
     border: none;
+    transform: none !important; 
 }
 
 .primary:hover {
     filter: brightness(0.9);
+    transform: none !important;
 }
 
 .secondary {
@@ -119,10 +128,12 @@ button, input[type=submit] {
     color: var(--foreground);
     border: 1px solid var(--foreground);
     border-radius: 4px;
+    transform: translateZ(0);
 }
 
 .secondary:hover {
     background: rgba(255,255,255,0.05);
+    transform: none !important;
 }
 
 /* Fix für Button-Container (entfernt versteckte Gaps) */
