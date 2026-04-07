@@ -1,9 +1,7 @@
 name: Build and Push Matrix-to Docker Image
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: # Erlaubt den manuellen Start über das GitHub UI
 
 jobs:
   build:
@@ -25,5 +23,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           tags: domoel/matrix-to:latest
+          no-cache: true
