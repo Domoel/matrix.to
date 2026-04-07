@@ -86,10 +86,10 @@
 }
 
 .ClientView .actions img {
-    max-width: 160px;       /* Begrenzt die Breite der Store-Buttons mobil */
+    max-width: 160px; /* Begrenzt die Breite der Store-Buttons (Google Play / F-Droid) */
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 5px auto;
 }
 
 @media screen and (max-width: 480px) {
