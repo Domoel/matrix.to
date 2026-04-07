@@ -211,3 +211,24 @@ input[type='text'].large {
     .card { padding: 1.5rem; border-radius: 2px; }
     h1 { font-size: 1.5rem; }
 }
+
+/* --- FIX FÜR NUTZERPROFILE (null-Werte verstecken) --- */
+
+.PreviewView .members[data-count="null"],
+.PreviewView .members:empty {
+    display: none !important;
+}
+
+.PreviewView .topic:empty,
+.PreviewView .topic:contains("null") {
+    display: none !important;
+}
+
+.PreviewView p:empty, 
+.PreviewView span:empty {
+    display: none !important;
+}
+
+.PreviewView h2 + p {
+    margin-bottom: 0 !important;
+}
