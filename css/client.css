@@ -98,24 +98,24 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    /* Der Abstand zwischen den Text-Zeilen */
-    gap: 10px !important; 
-    /* Abstand nach oben zum CONTINUE Button */
-    margin-top: 20px !important; 
+    /* Minimaler Abstand zwischen den Zeilen */
+    gap: 4px !important; 
+    /* Ein kleiner Puffer nach oben zum Button, damit es nicht klebt */
+    margin-top: 16px !important; 
     width: 100%;
 }
 
-/* Verhindert, dass der Text "Continue with Element" und "Change" sich quetschen */
-.ClientView .actions .footer > span {
-    display: block !important;
-    margin-bottom: 2px;
-}
-
-/* Sorgt dafür, dass der Custom Link als eigene Zeile atmen kann */
+/* Verhindert das Ineinanderlaufen der Zeilen */
+.ClientView .actions .footer > span,
 .ClientView .actions .footer .custom,
 .ClientView .actions .footer button.custom {
-    display: inline-block !important;
-    margin-top: 5px !important;
+    display: block !important;
+    line-height: 1.4 !important;
+}
+
+/* Der Change-Button bleibt im Textfluss der ersten Zeile */
+.ClientView .actions .footer button.change {
+    margin-left: 2px !important;
 }
 
 @media screen and (max-width: 480px) {
