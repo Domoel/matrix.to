@@ -9,7 +9,7 @@ Modified 2026 for Zeitfresser Matrix Community Look & Mobile Fixes
 @import url('create.css');
 @import url('open.css');
 
-/* Globaler Fix für Box-Berechnungen (verhindert horizontales Scrollen) */
+/* Globaler Fix für Box-Berechnungen */
 * {
     box-sizing: border-box;
 }
@@ -34,12 +34,12 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-x: hidden; /* Verhindert Wackeln nach links/rechts auf Mobile */
+    overflow-x: hidden;
 }
 
 body {
     background-color: var(--app-background);
-    background-image: none !important; /* Entfernt das Standard-Muster */
+    background-image: none !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--font);
     padding: 80px 20px 0 20px;
@@ -54,7 +54,7 @@ body {
 h1, h2, h3 { 
     color: var(--foreground); 
     letter-spacing: -0.5px;
-    word-wrap: break-word; /* Verhindert, dass lange Titel Mobile sprengen */
+    word-wrap: break-word;
 }
 
 p { 
@@ -76,11 +76,11 @@ button, input[type=submit] {
 /* Die zentrale Kachel */
 .card {
     background-color: var(--background);
-    border-radius: 4px; /* Eckig wie die Room-Cards */
+    border-radius: 4px;
     border-left: 4px solid var(--ztfr-purple);
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
     padding: 2.5rem;
-    width: 100%; /* Wichtig für Mobile */
+    width: 100%;
 }
 
 .RootView {
@@ -89,13 +89,13 @@ button, input[type=submit] {
     width: 100%;
 }
 
-/* Buttons: Eckig & Kontrastreich */
+/* BUTTONS: Überall konsistent 4px Margin */
 .primary, .secondary {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     padding: 14px 20px;
-    margin: 1px 0; 
+    margin: 4px 0 !important; /* Fixierter Abstand nach deinem Wunsch */
     display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -126,6 +126,21 @@ button, input[type=submit] {
     background: rgba(255,255,255,0.05);
 }
 
+/* Fix für Button-Container (entfernt versteckte Gaps) */
+.actions, 
+.ClientView .actions, 
+.ClientListView .actions,
+.CustomInstanceView .actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0px !important; 
+}
+
+/* Entfernt den Abstand beim letzten Button in einer Gruppe für saubere Optik */
+.actions > *:last-child {
+    margin-bottom: 0 !important;
+}
+
 /* Input Felder: Dunkel statt Weiß */
 input[type='text'].large {
     width: 100%;
@@ -140,17 +155,16 @@ input[type='text'].large {
 }
 
 .footer {
-    margin-top: 60px; /* Mehr Platz nach oben wie im Entwurf */
+    margin-top: 60px;
     padding: 40px 20px;
     text-align: center;
     font-size: 0.85rem;
-    color: var(--sub-text); /* Das sanfte Grau */
+    color: var(--sub-text);
     opacity: 0.7;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Dezente Trennlinie */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
 }
 
-/* Entfernt die hässlichen Listenpunkte */
 .footer ul {
     list-style: none;
     padding: 0;
@@ -158,11 +172,10 @@ input[type='text'].large {
 }
 
 .footer li {
-    display: inline; /* Alles in eine Zeile */
+    display: inline;
     margin: 0;
 }
 
-/* Die Links im Footer stylen */
 .footer a {
     color: inherit;
     text-decoration: none;
@@ -175,7 +188,6 @@ input[type='text'].large {
     border-bottom-color: var(--ztfr-purple) !important;
 }
 
-/* Den hässlichen "Clear Preferences" Button in einen Textlink verwandeln */
 .footer button, 
 .footer input[type="submit"], 
 .ClientListView button.change,
@@ -198,15 +210,15 @@ input[type='text'].large {
 /* SPEZIELLE MOBILE ANPASSUNGEN */
 @media screen and (max-width: 480px) {
     body {
-        padding: 40px 10px 0 10px; /* Weniger Abstand oben und seitlich */
+        padding: 40px 10px 0 10px;
     }
 
     .card {
-        padding: 1.5rem;    /* Mehr Platz für Inhalt auf kleinem Screen */
-        border-radius: 2px; /* Fast ganz eckig für mehr Fläche */
+        padding: 1.5rem;
+        border-radius: 2px;
     }
 
     h1 {
-        font-size: 1.5rem;  /* Etwas kleinere Schrift für Mobile Titel */
+        font-size: 1.5rem;
     }
 }
