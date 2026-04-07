@@ -37,7 +37,7 @@ export class RootView extends TemplateView {
                     externalLink(t, "https://github.com/matrix-org/matrix.to", "Matrix-to")
                 ]),
                 t.p({className: {hidden: vm => !vm.hasPreferences}}, [
-                    t.button({className: "text", onClick: () => vm.clearPreferences()}, "Clear preferences")
+                    t.button({className: "text", onClick: () => { vm.clearPreferences(); location.reload(); }}, "Clear preferences")
                 ])
             ])
         ]);
