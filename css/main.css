@@ -89,13 +89,13 @@ button, input[type=submit] {
     width: 100%;
 }
 
-/* BUTTONS: Überall konsistent 4px Margin */
+/* Buttons: Eckig & Kontrastreich */
 .primary, .secondary {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     padding: 14px 20px;
-    margin: 4px 0 !important; /* Fixierter Abstand nach deinem Wunsch */
+    margin: 4px 0 !important; 
     display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -112,7 +112,6 @@ button, input[type=submit] {
 
 .primary:hover {
     filter: brightness(0.9);
-    transform: translateY(-2px);
 }
 
 .secondary {
