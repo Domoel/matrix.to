@@ -1,6 +1,6 @@
 /*
 Copyright 2020 The Matrix.org Foundation C.I.C.
-Modified 2026 for Zeitfresser Matrix Community Look
+Modified 2026 for Zeitfresser Matrix Community Look & Mobile Fixes
 */
 
 @import url('spinner.css');
@@ -8,6 +8,11 @@ Modified 2026 for Zeitfresser Matrix Community Look
 @import url('preview.css');
 @import url('create.css');
 @import url('open.css');
+
+/* Globaler Fix für Box-Berechnungen (verhindert horizontales Scrollen) */
+* {
+    box-sizing: border-box;
+}
 
 :root {
     --app-background: #1e1f29;    /* Tief-Anthrazit der Webseite */
@@ -29,6 +34,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow-x: hidden; /* Verhindert Wackeln nach links/rechts auf Mobile */
 }
 
 body {
@@ -42,14 +48,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 h1, h2, h3 { 
     color: var(--foreground); 
     letter-spacing: -0.5px;
+    word-wrap: break-word; /* Verhindert, dass lange Titel Mobile sprengen */
 }
 
-p { line-height: 1.7; }
+p { 
+    line-height: 1.7; 
+    word-wrap: break-word;
+}
+
 a { text-decoration: none; color: var(--link); }
 
 body, button, input, textarea {
@@ -68,7 +80,7 @@ button, input[type=submit] {
     border-left: 4px solid var(--ztfr-purple);
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
     padding: 2.5rem;
-    box-sizing: border-box;
+    width: 100%; /* Wichtig für Mobile */
 }
 
 .RootView {
@@ -88,6 +100,7 @@ button, input[type=submit] {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.2s ease;
+    width: 100%; /* Damit Buttons auf Mobile die volle Breite nutzen */
 }
 
 .primary {
@@ -134,6 +147,7 @@ input[type='text'].large {
     color: var(--sub-text); /* Das sanfte Grau */
     opacity: 0.7;
     border-top: 1px solid rgba(255, 255, 255, 0.05); /* Dezente Trennlinie */
+    width: 100%;
 }
 
 /* Entfernt die hässlichen Listenpunkte */
@@ -179,4 +193,20 @@ input[type='text'].large {
 .footer button:hover {
     color: var(--foreground) !important;
     border-bottom-color: var(--ztfr-purple) !important;
+}
+
+/* SPEZIELLE MOBILE ANPASSUNGEN */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 40px 10px 0 10px; /* Weniger Abstand oben und seitlich */
+    }
+
+    .card {
+        padding: 1.5rem;    /* Mehr Platz für Inhalt auf kleinem Screen */
+        border-radius: 2px; /* Fast ganz eckig für mehr Fläche */
+    }
+
+    h1 {
+        font-size: 1.5rem;  /* Etwas kleinere Schrift für Mobile Titel */
+    }
 }
