@@ -71,3 +71,40 @@
     font-size: 12px;
     color: var(--grey);
 }
+
+.ClientView .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.ClientView .actions a.badge {
+    height: auto !important; /* Erlaubt dem Bild, zu skalieren */
+    max-width: 100%;        /* Verhindert das Rausragen */
+    display: block;
+}
+
+.ClientView .actions img {
+    max-width: 160px;       /* Begrenzt die Breite der Store-Buttons mobil */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+    .ClientView {
+        padding: 15px;      /* Weniger Padding mobil */
+        margin: 8px 0;
+    }
+    
+    .ClientView .header {
+        flex-direction: column; /* Stapelt Icon und Text mobil untereinander */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .ClientView .clientIcon {
+        margin: 0 0 15px 0; /* Icon zentrieren */
+    }
+}
