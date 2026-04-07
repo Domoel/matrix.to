@@ -18,7 +18,7 @@ import {Maturity, Platform, LinkKind,
     FDroidLink, AppleStoreLink, PlayStoreLink, WebsiteLink} from "../types.js";
 
 const trustedWebInstances = [
-    "chat.ztfr.eu",  // Die erste Instanz ist der Standard
+    "chat.ztfr.eu",  // Zeitfresser ist der gesetzte Standard
     "app.element.io",
     "develop.element.io",
     "chat.fedoraproject.org",
@@ -83,15 +83,15 @@ export class Element {
 
         const isWebPlatform = platform === Platform.DesktopWeb || platform === Platform.MobileWeb;
         if (isWebPlatform || platform === Platform.iOS) {
-            // Wir nutzen hier immer die erste Instanz aus der Liste (deine chat.ztfr.eu)
+            // Standardmäßig deine Instanz nehmen
             let instanceHost = trustedWebInstances[0];
-            
-            // Wenn es eine Web-Plattform ist, erzwingen wir deine Instanz,
-            // auch wenn eine "bevorzugte" in den Cookies des Nutzers steht.
-            if (isWebPlatform) {
-                instanceHost = trustedWebInstances[0];
+
+            // Falls der Nutzer über den "Change"-Dialog eine bevorzugte Instanz 
+            // oder eine Custom-URL gewählt hat, nutzen wir diese:
+            if (isWebPlatform && preferredWebInstance) {
+                instanceHost = preferredWebInstance;
             }
-            
+
             return `https://${instanceHost}/#/${fragmentPath}`;
         } else if (platform === Platform.Linux || platform === Platform.Windows || platform === Platform.macOS) {
             return `element://vector/webapp/#/${fragmentPath}`;
@@ -115,8 +115,9 @@ export class Element {
     }
 
     getPreferredWebInstance(link) {
-        // Wir geben hier immer deine Instanz zurück, falls sie in der Liste steht
-        const idx = trustedWebInstances.indexOf("chat.ztfr.eu");
+        // Hier geben wir dem System die Erlaubnis, gespeicherte Präferenzen zu finden.
+        // Wenn keine da sind, greift oben automatisch trustedWebInstances[0].
+        const idx = trustedWebInstances.indexOf(link.webInstances[this.id])
         return idx === -1 ? undefined : trustedWebInstances[idx];
     }
 }
