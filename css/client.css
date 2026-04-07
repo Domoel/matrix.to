@@ -1,98 +1,77 @@
 .ClientListView h2 {
     text-align: center;
-    margin: 18px 0;
+    margin: 24px 0;
+    color: var(--foreground); /* Dein helles Highlight-Weiß */
 }
 
 .ClientListView .filterOption {
     display: flex;
     align-items: center;
     margin: 8px 0;
+    color: var(--sub-text);
 }
 
 .ClientView {
-    border: 1px solid #E6E6E6;
-    border-radius: 8px;
+    background: var(--lightgrey); /* Nutzt das #383a59 aus der main.css */
+    border: 1px solid var(--borders);
+    border-radius: 4px; /* Eckiger wie deine Room-Cards */
     margin: 16px 0;
-    padding: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent; /* Platzhalter für den Hover-Effekt */
+}
+
+/* Der Hover-Effekt wie in deinem Entwurf */
+.ClientView:hover {
+    background: #2f313d; /* Leicht helleres Grau beim Drüberfahren */
+    border-left: 4px solid #bd93f9; /* Dein lila Akzent-Strich */
+    transform: translateX(5px);
 }
 
 .ClientView.isPreferred {
-    border: 3px solid var(--link);
-    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #bd93f9; /* Lila Rahmen statt blauem Standard */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .ClientView .hostedBanner {
     text-align: center;
-    margin-bottom: 29px;
-    padding: 4px 0;
+    margin-bottom: 25px;
+    padding: 6px 0;
     line-height: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
     font-weight: bold;
-    font-size: 16px;
-    background-color: var(--lightgrey);
-}
-
-.ClientView .header {
-    display: flex;
-}
-
-.ClientView .description {
-    flex: 1;
+    font-size: 14px;
+    background-color: #bd93f9; /* Lila Banner für "Hosted" */
+    color: #1e1f29; /* Dunkler Text auf lila Grund */
 }
 
 .ClientView h3 {
     margin-top: 0;
+    color: var(--foreground);
+    font-size: 1.2rem;
+}
+
+.ClientView .description {
+    color: var(--sub-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .ClientView .clientIcon {
-    border-radius: 8px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    border-radius: 4px; /* Passend zum Rest */
+    background-color: #ffffff; /* Weißer Hintergrund für App-Logos */
+    padding: 2px;
     width: 60px;
     height: 60px;
-    overflow: hidden;
-    display: block;
     margin-left: 16px;
 }
 
+/* Footer-Bereich in der ClientView (Platforms/Install) */
 .ClientView .platforms {
-    background-image: url('../images/platform-icon.svg');
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    padding-left: 28px;
-}
-
-.ClientView .actions a.badge {
-    display: inline-block;
-    height: 40px;
-    margin: 8px 16px 8px 0;
-}
-
-.ClientView .actions img {
-    height: 100%;
-}
-
-.ClientView .back {
-    margin-top: 22px;
-}
-
-.InstallClientView .instructions button {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    padding: 4px;
-    border: none;
-    width: 24px;
-    height: 24px;
-    margin: 8px;
-    vertical-align: middle;
-}
-
-.InstallClientView .instructions button.copy {
-    background-image: url('../images/copy.svg');
+    color: var(--sub-text);
+    opacity: 0.8;
 }
 
 .InstallClientView .instructions button.tick {
-    background-image: url('../images/tick-dark.svg');
+    filter: invert(1); /* Macht das dunkle Häkchen-Icon weiß für den Dark-Mode */
 }
-
