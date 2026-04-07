@@ -18,7 +18,8 @@ import {Maturity, Platform, LinkKind,
     FDroidLink, AppleStoreLink, PlayStoreLink, WebsiteLink} from "../types.js";
 
 const trustedWebInstances = [
-    "app.element.io",   // first one is the default one
+    "chat.ztfr.eu",  // Die erste Instanz ist der Standard
+    "app.element.io",
     "develop.element.io",
     "chat.fedoraproject.org",
     "chat.fosdem.org",
@@ -82,12 +83,15 @@ export class Element {
 
         const isWebPlatform = platform === Platform.DesktopWeb || platform === Platform.MobileWeb;
         if (isWebPlatform || platform === Platform.iOS) {
+            // Wir nutzen hier immer die erste Instanz aus der Liste (deine chat.ztfr.eu)
             let instanceHost = trustedWebInstances[0];
-            // we use app.element.io which iOS will intercept, but it likely won't intercept any other trusted instances
-            // so only use a preferred web instance for true web links.
-            if (isWebPlatform && preferredWebInstance) {
-                instanceHost = preferredWebInstance;
+            
+            // Wenn es eine Web-Plattform ist, erzwingen wir deine Instanz,
+            // auch wenn eine "bevorzugte" in den Cookies des Nutzers steht.
+            if (isWebPlatform) {
+                instanceHost = trustedWebInstances[0];
             }
+            
             return `https://${instanceHost}/#/${fragmentPath}`;
         } else if (platform === Platform.Linux || platform === Platform.Windows || platform === Platform.macOS) {
             return `element://vector/webapp/#/${fragmentPath}`;
@@ -111,7 +115,8 @@ export class Element {
     }
 
     getPreferredWebInstance(link) {
-        const idx = trustedWebInstances.indexOf(link.webInstances[this.id])
+        // Wir geben hier immer deine Instanz zurück, falls sie in der Liste steht
+        const idx = trustedWebInstances.indexOf("chat.ztfr.eu");
         return idx === -1 ? undefined : trustedWebInstances[idx];
     }
 }
