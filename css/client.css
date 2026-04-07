@@ -80,31 +80,54 @@
 }
 
 .ClientView .actions a.badge {
-    height: auto !important; /* Erlaubt dem Bild, zu skalieren */
-    max-width: 100%;        /* Verhindert das Rausragen */
+    height: auto !important;
+    max-width: 100%;
     display: block;
 }
 
 .ClientView .actions img {
-    max-width: 160px; /* Begrenzt die Breite der Store-Buttons (Google Play / F-Droid) */
+    max-width: 160px;
     height: auto;
     display: block;
     margin: 5px auto;
 }
 
+/* --- ANPASSUNG FÜR DEN DEZENTEN LOOK --- */
+
+.ClientView .actions .footer {
+    display: block !important; /* Kein Flex mehr, damit Links wie Text fließen */
+    text-align: center !important;
+    margin-top: 20px !important;
+    width: 100%;
+    line-height: 1.8 !important; /* Gibt den Zeilen etwas Platz */
+    color: var(--sub-text);
+}
+
+/* Der "Use Custom Web Instance" Bereich bekommt eine eigene Zeile */
+.ClientView .actions .footer .custom {
+    display: block !important;
+    margin-top: 6px !important;
+}
+
+/* Sicherstellen, dass der "Change" Button im Textfluss bleibt */
+.ClientView .actions .footer button.change {
+    display: inline !important;
+    margin: 0 4px !important;
+}
+
 @media screen and (max-width: 480px) {
     .ClientView {
-        padding: 15px;      /* Weniger Padding mobil */
+        padding: 15px;
         margin: 8px 0;
     }
     
     .ClientView .header {
-        flex-direction: column; /* Stapelt Icon und Text mobil untereinander */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
     
     .ClientView .clientIcon {
-        margin: 0 0 15px 0; /* Icon zentrieren */
+        margin: 0 0 15px 0;
     }
 }
