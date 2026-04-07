@@ -21,16 +21,16 @@ limitations under the License.
 @import url('open.css');
 
 :root {
-    --app-background: #f4f4f4;
-    --background: #ffffff;
-    --foreground: #000000;
-    --font: #333333;
-    --grey: #666666;
-    --accent: #0098d4;
-    --error: #d6001c;
-    --link: #0098d4;
-    --borders: #f4f4f4;
-    --lightgrey: #E6E6E6;
+    --app-background: #1e1f29;    /* Hintergrund der Seite */
+    --background: #282a36;        /* Hintergrund der Card/Kachel */
+    --foreground: #f7f7fa;        /* Haupt-Textfarbe */
+    --font: #f7f7fa;
+    --sub-text: #bdc3c7;          /* Für Beschreibungen */
+    --accent: #0dbd8b;            /* Matrix Green */
+    --link: #f7f7fa;              /* Links weiß wie im Entwurf */
+    --borders: #2f313d;
+    --lightgrey: #383a59;
+    --error: #ff5555;
     --spinner-stroke-size: 2px;
 }
 
@@ -41,17 +41,17 @@ html {
 
 body {
     background-color: var(--app-background);
-    background-image: url('../images/background.svg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center -50px;
-    height: 100%;
-    width: 100%;
-    font-size: 14px;
+    /* Das Standard-Hintergrundbild entfernen für den cleanen Look */
+    background-image: none; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--font);
-    padding: 120px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
     margin: 0;
+    height: auto;
+    min-height: 100vh;
 }
 
 noscript {
@@ -95,8 +95,12 @@ input[type="checkbox"], input[type="radio"] {
 
 .card {
     background-color: var(--background);
-    border-radius: 16px;
-    box-shadow: 0px 18px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 4px; /* Eckig wie in deinem Entwurf */
+    border-left: 4px solid #bd93f9; /* Der lila Akzent-Strich vom Hover-Effekt */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 2rem;
+    max-width: 480px;
+    width: 100%;
 }
 
 .card, .footer {
@@ -158,19 +162,22 @@ button.text:hover {
     cursor: pointer;
 }
 
-.primary, .secondary {
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    padding: 12px 8px;
-    margin: 8px 0;
+.primary {
+    background-color: var(--font) !important; /* Weißer Hintergrund */
+    color: var(--app-background) !important;  /* Dunkler Text */
+    border-radius: 4px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .secondary {
-    background: var(--background);
-    color: var(--link);
-    border: 1px solid var(--link);
-    border-radius: 32px;
+    background: transparent !important;
+    border: 1px solid var(--font) !important;
+    color: var(--font) !important;
+    border-radius: 4px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .primary {
