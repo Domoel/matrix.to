@@ -95,12 +95,12 @@ button, input[type=submit] {
     font-weight: bold;
     text-align: center;
     padding: 14px 20px;
-    margin: 12px 0;
+    margin: 6px 0;
     display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.2s ease;
-    width: 100%; /* Damit Buttons auf Mobile die volle Breite nutzen */
+    width: 100%; 
 }
 
 .primary {
