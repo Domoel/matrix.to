@@ -4,28 +4,24 @@
 }
 
 .PreviewView h1 {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 26px;
+    line-height: 1.2;
     margin-bottom: 8px;
-    word-wrap: anywhere;
-    color: var(--foreground); /* Nutzt dein Weiß/Highlight */
+    font-weight: 700;
 }
 
 .PreviewView .avatarContainer {
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 .PreviewView .avatar {
-    border-radius: 8px; /* Eckiger, wie in deinem Entwurf */
-    width: 80px;        /* Etwas größer für mehr Wirkung */
+    border-radius: 8px; /* Eckig */
+    width: 80px;
     height: 80px;
-    border: 2px solid var(--borders);
-}
-
-.PreviewView .mxSpace .avatar {
-    border-radius: 12px;
+    border: 3px solid var(--borders);
+    object-fit: cover;
 }
 
 .PreviewView .defaultAvatar {
@@ -36,46 +32,47 @@
     background-image: url('../images/chat-icon.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 60%;
+    opacity: 0.6;
 }
 
 .PreviewView .identifier {
-    color: var(--sub-text); /* Das weichere Grau */
+    color: var(--ztfr-purple);
+    font-family: monospace;
     font-size: 13px;
-    margin: 12px 0;
-    opacity: 0.8;
+    margin: 8px 0;
+    letter-spacing: 0.5px;
 }
 
 .PreviewView .memberCount p:not(.placeholder) {
     padding: 6px 12px 6px 28px;
-    border-radius: 4px; /* Eckiger statt Pille */
+    border-radius: 4px;
     color: var(--foreground);
     background-image: url(../images/member-icon.svg);
     background-repeat: no-repeat;
-    background-position: 6px center;
-    background-color: var(--lightgrey); /* Dunkler Kontrast zur Card */
+    background-position: 8px center;
+    background-color: var(--lightgrey);
+    display: inline-block;
     font-size: 12px;
 }
 
 .PreviewView .topic {
     font-size: 14px;
     line-height: 1.6;
-    color: var(--sub-text); /* Dein Fließtext-Grau */
+    color: var(--font);
     margin: 24px 0;
-    padding: 0 10px;
 }
 
-/* Placeholder-Animation für dunkles Theme anpassen */
+/* Dark Mode Placeholders */
 .placeholder {
     border-radius: 4px;
-    --flash-bg: #383a59; /* Dracula Light Grey */
-    --flash-fg: #44475a; /* Dracula Current Line */
-    background: linear-gradient(120deg,
-        var(--flash-bg),
-        var(--flash-bg) 10%,
-        var(--flash-fg) calc(10% + 25px),
-        var(--flash-bg) calc(10% + 50px)
-    );
+    --flash-bg: #2f313d;
+    --flash-fg: #383a59;
+    background: linear-gradient(120deg, var(--flash-bg), var(--flash-bg) 10%, var(--flash-fg) calc(10% + 25px), var(--flash-bg) calc(10% + 50px));
     animation: flash 2s linear infinite;
     background-size: 200%;
+}
+
+@keyframes flash {
+    0% { background-position-x: 0; }
+    100% { background-position-x: -200%; }
 }
