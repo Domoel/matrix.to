@@ -22,6 +22,7 @@ Modified 2026 for Zeitfresser Matrix Community Look
     --borders: #2f313d;
     --lightgrey: #383a59;
     --spinner-stroke-size: 2px;
+    --sub-text: #bdc3c7;
 }
 
 html {
@@ -126,18 +127,56 @@ input[type='text'].large {
 }
 
 .footer {
-    padding: 2rem;
-    color: var(--grey);
+    margin-top: 60px; /* Mehr Platz nach oben wie im Entwurf */
+    padding: 40px 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 0.85rem;
+    color: var(--sub-text); /* Das sanfte Grau */
+    opacity: 0.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Dezente Trennlinie */
 }
 
-.footer a { color: var(--grey); border-bottom: 1px solid transparent; }
-.footer a:hover { color: var(--foreground); border-bottom-color: var(--ztfr-purple); }
+/* Entfernt die hässlichen Listenpunkte */
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-.hidden { display: none !important; }
+.footer li {
+    display: inline; /* Alles in eine Zeile */
+    margin: 0;
+}
 
-@media screen and (max-width: 480px) {
-    body { padding: 0; background-color: var(--background); }
-    .card { border-radius: unset; box-shadow: unset; border-left: none; }
+/* Die Links im Footer stylen */
+.footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(189, 195, 199, 0.3);
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--foreground) !important;
+    border-bottom-color: var(--ztfr-purple) !important;
+}
+
+/* Den hässlichen "Clear Preferences" Button in einen Textlink verwandeln */
+.footer button, 
+.footer input[type="submit"], 
+.ClientListView button.change,
+.PreviewView button.change {
+    background: none !important;
+    border: none !important;
+    color: var(--grey) !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid rgba(189, 195, 199, 0.3) !important;
+}
+
+.footer button:hover {
+    color: var(--foreground) !important;
+    border-bottom-color: var(--ztfr-purple) !important;
 }
