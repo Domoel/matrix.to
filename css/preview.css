@@ -76,3 +76,23 @@
     0% { background-position-x: 0; }
     100% { background-position-x: -200%; }
 }
+
+.PreviewView h1, 
+.PreviewView .identifier, 
+.PreviewView .topic {
+    word-wrap: break-word;   /* Bricht extrem lange Wörter/IDs um */
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .PreviewView .avatar, 
+    .PreviewView .defaultAvatar {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .PreviewView h1 {
+        font-size: 20px; /* Titel etwas dezenter mobil */
+    }
+}
