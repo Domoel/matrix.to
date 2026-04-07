@@ -80,57 +80,31 @@
 }
 
 .ClientView .actions a.badge {
-    height: auto !important;
-    max-width: 100%;
+    height: auto !important; /* Erlaubt dem Bild, zu skalieren */
+    max-width: 100%;        /* Verhindert das Rausragen */
     display: block;
 }
 
 .ClientView .actions img {
-    max-width: 160px;
+    max-width: 160px; /* Begrenzt die Breite der Store-Buttons (Google Play / F-Droid) */
     height: auto;
     display: block;
     margin: 5px auto;
 }
 
-/* --- NEU: FIX FÜR DEN ABSTAND IM FOOTER (Change / Custom Web Instance) --- */
-
-.ClientView .actions .footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    /* Minimaler Abstand zwischen den Zeilen */
-    gap: 4px !important; 
-    /* Ein kleiner Puffer nach oben zum Button, damit es nicht klebt */
-    margin-top: 16px !important; 
-    width: 100%;
-}
-
-/* Verhindert das Ineinanderlaufen der Zeilen */
-.ClientView .actions .footer > span,
-.ClientView .actions .footer .custom,
-.ClientView .actions .footer button.custom {
-    display: block !important;
-    line-height: 1.4 !important;
-}
-
-/* Der Change-Button bleibt im Textfluss der ersten Zeile */
-.ClientView .actions .footer button.change {
-    margin-left: 2px !important;
-}
-
 @media screen and (max-width: 480px) {
     .ClientView {
-        padding: 15px;
+        padding: 15px;      /* Weniger Padding mobil */
         margin: 8px 0;
     }
     
     .ClientView .header {
-        flex-direction: column;
+        flex-direction: column; /* Stapelt Icon und Text mobil untereinander */
         align-items: center;
         text-align: center;
     }
     
     .ClientView .clientIcon {
-        margin: 0 0 15px 0;
+        margin: 0 0 15px 0; /* Icon zentrieren */
     }
 }
