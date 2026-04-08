@@ -51,24 +51,22 @@ class LoadedPreviewView extends TemplateView {
                 return t.div({className: "defaultAvatar"});
             }
         });
+
+        const hasMemberCount = vm => vm.memberCount && String(vm.memberCount) !== "null";
+        const hasTopic = vm => vm.topic && String(vm.topic) !== "null";
+
         return t.div({className: vm.isSpaceRoom ? "mxSpace" : undefined}, [
             t.div({className: "avatarContainer"}, avatar),
             t.h1(vm => vm.name),
             t.p({className: {identifier: true, hidden: vm => !vm.identifier}}, vm => vm.identifier),
             
-            t.div({
-                className: {
-                    memberCount: true, 
-                    hidden: vm => !vm.memberCount || vm.memberCount === "null"
-                }
-            }, t.p([vm => vm.memberCount, " members"])),
+            t.div({className: {memberCount: true, hidden: vm => !hasMemberCount(vm)}}, 
+                t.p([vm => hasMemberCount(vm) ? vm.memberCount + " members" : ""])
+            ),
             
-            t.p({
-                className: {
-                    topic: true, 
-                    hidden: vm => !vm.topic || vm.topic === "null"
-                }
-            }, [vm => vm.topic]),
+            t.p({className: {topic: true, hidden: vm => !hasTopic(vm)}}, 
+                [vm => hasTopic(vm) ? vm.topic : ""]
+            ),
         ]);
     }
 }
