@@ -44,15 +44,6 @@ class LoadingPreviewView extends TemplateView {
 
 class LoadedPreviewView extends TemplateView {
     render(t, vm) {
-        // --- BEWEISSICHERUNG: DEBUGGING LOGS ---
-        console.log("=== MATRIX.TO DATEN-ANALYSE ===");
-        console.log("Name:", vm.name);
-        console.log("Identifier:", vm.identifier);
-        console.log("Topic Wert:", vm.topic, "| Typ:", typeof vm.topic);
-        console.log("MemberCount Wert:", vm.memberCount, "| Typ:", typeof vm.memberCount);
-        console.log("===============================");
-        // ---------------------------------------
-
         const avatar = t.map(vm => vm.avatarUrl, (avatarUrl, t) => {
             if (avatarUrl) {
                 return t.img({className: "avatar", src: avatarUrl});
