@@ -19,7 +19,7 @@
 .ClientView:hover {
     background: #2f313d !important;
     border-left-color: var(--ztfr-purple) !important;
-    transform: translateX(5px);
+    /* transform: translateX(5px); - Entfernt, damit die Kachel nicht mehr springt */
 }
 
 .ClientView.isPreferred {
@@ -92,29 +92,55 @@
     margin: 5px auto;
 }
 
-/* --- ANPASSUNG FÜR DEN DEZENTEN LOOK --- */
+/* --- ANPASSUNG FÜR DEN DEZENTEN LOOK DER BUTTONS --- */
 
 .ClientView .actions .footer {
-    display: block !important; /* Kein Flex mehr, damit Links wie Text fließen */
+    display: block !important; 
     text-align: center !important;
     margin-top: 20px !important;
     width: 100%;
-    line-height: 1.8 !important; /* Gibt den Zeilen etwas Platz */
+    line-height: 1.8 !important; 
     color: var(--sub-text);
 }
 
-/* Der "Use Custom Web Instance" Bereich bekommt eine eigene Zeile */
+/* Reset der Button-Styles: Macht aus den grauen Kästen einfachen Text mit unsichtbarem Rahmen für ruckelfreien Hover */
+.ClientView .actions .footer button.change,
+.ClientView .actions .footer button.custom,
+.ClientView .actions .footer .custom,       
+.ClientView .actions .footer .custom button, 
+.PreviewView > .footer button.change        
+{
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid transparent !important; 
+    color: var(--sub-text) !important;
+    padding: 0 2px !important;
+    margin: 0 4px !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    cursor: pointer !important;
+    display: inline !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Der Hover-Effekt: Hellerer Text und lila Unterstrich */
+.ClientView .actions .footer button.change:hover,
+.ClientView .actions .footer button.custom:hover,
+.ClientView .actions .footer .custom:hover,
+.ClientView .actions .footer .custom button:hover,
+.PreviewView > .footer button.change:hover
+{
+    color: var(--foreground) !important; 
+    border-bottom: 1px solid var(--ztfr-purple) !important; 
+}
+
+/* Layout-Anpassung für die Custom-Web-Instance-Zeile, damit sie sauber umbricht */
 .ClientView .actions .footer .custom {
     display: block !important;
     margin-top: 6px !important;
 }
 
-/* Sicherstellen, dass der "Change" Button im Textfluss bleibt */
-.ClientView .actions .footer button.change {
-    display: inline !important;
-    margin: 0 4px !important;
-}
-
+/* --- MOBILE ANPASSUNGEN --- */
 @media screen and (max-width: 480px) {
     .ClientView {
         padding: 15px;
