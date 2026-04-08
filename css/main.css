@@ -212,23 +212,12 @@ input[type='text'].large {
     h1 { font-size: 1.5rem; }
 }
 
-/* --- FIX FÜR NUTZERPROFILE (null-Werte verstecken) --- */
-
-.PreviewView .members[data-count="null"],
-.PreviewView .members:empty {
+.memberCount.hidden,
+.topic.hidden {
     display: none !important;
 }
 
-.PreviewView .topic:empty,
-.PreviewView .topic:contains("null") {
+.memberCount:has(p:empty),
+.topic:empty {
     display: none !important;
-}
-
-.PreviewView p:empty, 
-.PreviewView span:empty {
-    display: none !important;
-}
-
-.PreviewView h2 + p {
-    margin-bottom: 0 !important;
 }
