@@ -1,7 +1,7 @@
 name: Build and Push Matrix-to Docker Image
 
 on:
-  workflow_dispatch: # Erlaubt den manuellen Start über das GitHub UI
+  workflow_dispatch: # Manueller Start
 
 jobs:
   build:
@@ -20,10 +20,16 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Generate Timestamp Tag
+        id: vars
+        run: echo "sha_short=$(date +%Y%m%d-%H%M)" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: domoel/matrix-to:latest
+          tags: |
+            domoel/matrix-to:latest
+            domoel/matrix-to:${{ steps.vars.outputs.sha_short }}
           no-cache: true
