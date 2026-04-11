@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://ztfr.eu/matrix">
+    <img src="images/ztfr.png" alt="Join Zeitfresser Matrix Community" height="70" />
+  </a>
+</p>
+
 # Matrix.to
 
 Matrix.to is a simple url redirection service for the Matrix.org ecosystem
