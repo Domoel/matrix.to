@@ -1,16 +1,10 @@
-<p align="center">
-  <a href="https://ztfr.eu/matrix">
-    <img src="assets/community-badge.png" alt="Join Zeitfresser Matrix Community" height="70" />
-  </a>
-</p>
-
-<h2 <p align="center">
+<h3 <p align="center">
   <a href="https://ztfr.eu/matrix">
     <img src="assets/community-badge.png" alt="Join Zeitfresser Matrix Community" height="70" />
   </a>
 </p>
 	Matrix.to Dracula Themed
-</h2>
+</h3>
 <h6 align="center">
   <a href="https://ztfr.eu">🏰 Website</a>
   ·
