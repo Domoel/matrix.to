@@ -4,6 +4,25 @@
   </a>
 </p>
 
+<h2 <p align="center">
+  <a href="https://ztfr.eu/matrix">
+    <img src="assets/community-badge.png" alt="Join Zeitfresser Matrix Community" height="70" />
+  </a>
+</p>
+	Matrix.to Dracula Themed
+</h2>
+<h6 align="center">
+  <a href="https://ztfr.eu">🏰 Website</a>
+  ·
+  <a href="https://ztfr.eu/matrix">📰 Zeitfresser Matrix Community</a>
+  ·
+  <a href="https://look.ztfr.eu/#/#support:ztfr.eu">💬 Supportchat</a> 
+</h6>
+<p align="center">
+  A simple stateless privacy-protecting URL redirecting service for Matrix Servers with an opinionated Dracula Theme
+</p>
+<hr/>
+
 # Matrix.to
 
 Matrix.to is a simple url redirection service for the Matrix.org ecosystem
