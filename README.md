@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ztfr.eu/matrix">
-    <img src="assets/ztfr.png" alt="Join Zeitfresser Matrix Community" height="70" />
+    <img src="assets/community-badge.png" alt="Join Zeitfresser Matrix Community" height="70" />
   </a>
 </p>
 
