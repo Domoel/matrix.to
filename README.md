@@ -109,3 +109,7 @@ services:
     environment:
       - NODE_ENV=production
 ```
+
+### 🛠 Development & Support
+
+If you need to get support or want to participate in the active development of this software, you can <a href="https://ztfr.eu/matrix">join our Zeitfresser Matrix Community</a> or the <a href="https://look.ztfr.eu/#/#support:ztfr.eu">Development & Support Channel</a> on Matrix.
